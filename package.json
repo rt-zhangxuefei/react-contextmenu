@@ -1,0 +1,56 @@
+{
+  "name": "react-contextmenu",
+  "version": "1.0.0",
+  "description": "基于 React 实现右键菜单功能",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rt-zhangxuefei/react-contextmenu.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "contextmenu",
+    "rightmenu",
+    "rightclick"
+  ],
+  "author": "rt-zhangxuefei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rt-zhangxuefei/react-contextmenu/issues"
+  },
+  "homepage": "https://github.com/rt-zhangxuefei/react-contextmenu#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "dependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "@umijs/fabric": "^2.0.8",
+    "babel-loader": "^8.1.0",
+    "browserslist": "^4.12.0",
+    "css-loader": "^3.5.3",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^5.0.0-beta.16",
+    "webpack-cli": "^4.0.0-beta.8"
+  }
+}
