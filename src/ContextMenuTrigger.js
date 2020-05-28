@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect } from 'react';
 
 const ContextMenuTrigger = (props) => {
   const { children, id } = props;
+
   useEffect(() => {
     window.addEventListener('contextmenu', (ev) => {
       ev.preventDefault();
@@ -36,6 +37,10 @@ const ContextMenuTrigger = (props) => {
     ctxtMenu.style.left = `${left}px`;
     ctxtMenu.style.display = 'block';
   }, []);
+
+  if (!id) {
+    return console.error('property id is required');
+  }
   return <div onContextMenu={handleContextMenu}>{children}</div>;
 };
 export default memo(ContextMenuTrigger);

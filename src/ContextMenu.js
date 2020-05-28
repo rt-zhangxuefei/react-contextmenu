@@ -2,7 +2,8 @@ import React, { memo, useEffect } from 'react';
 import './ContextMenu.less';
 
 const ContextMenu = (props) => {
-  const { children, className = '', id, zIndex = 100, width, height } = props;
+  const { children, className = '', id, zIndex = 100, width = '110px', height = '200px' } = props;
+
   useEffect(() => {
     const ctxMenu = document.getElementById(id);
     window.addEventListener('click', () => {
@@ -19,6 +20,11 @@ const ContextMenu = (props) => {
       });
     };
   }, []);
+
+  if (!id) {
+    return console.error('property id is required');
+  }
+
   return (
     <div
       id={id}

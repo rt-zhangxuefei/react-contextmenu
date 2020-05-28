@@ -6,5 +6,6 @@ module.exports = {
     'react/no-array-index-key': 1,
     'no-param-reassign': 0,
     'global-require': 0,
+    'no-console': 0,
   },
 };
