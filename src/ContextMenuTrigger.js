@@ -1,7 +1,17 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 
 const ContextMenuTrigger = (props) => {
   const { children, id } = props;
+  useEffect(() => {
+    window.addEventListener('contextmenu', (ev) => {
+      ev.preventDefault();
+    });
+    return () => {
+      window.removeEventListener('contextmenu', (ev) => {
+        ev.preventDefault();
+      });
+    };
+  }, []);
   const handleContextMenu = useCallback((ev) => {
     ev.persist();
     const ctxtMenu = document.getElementById(id);
