@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: 'react-contextmenu.js',
+    filename: 'index.js',
     library: 'ReactContextMenu',
     libraryTarget: 'umd',
   },
