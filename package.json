@@ -1,6 +1,6 @@
 {
   "name": "react-contextmenu-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "基于 React 实现右键菜单功能",
   "main": "lib/index.js",
   "scripts": {
