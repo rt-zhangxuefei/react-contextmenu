@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/react-contextmenu-lite.png)](https://nodei.co/npm/react-contextmenu-lite/)
+
 # react-contextmenu-lite
 
 基于 React 实现的右键菜单，仅提供基本功能，样式由你自己定义
