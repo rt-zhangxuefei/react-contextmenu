@@ -5,7 +5,7 @@
 ## Introduction
 
 - 包含 2 个高阶组件( ContextMenu, ContextMenuTrigger )
-- 两个组件必须包含相同的 id 属性 
+- 两个组件必须包含相同的 id 属性 ( className 参数可选 )
 
 ## Installation
 
