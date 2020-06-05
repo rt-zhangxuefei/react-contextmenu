@@ -9,13 +9,13 @@ const ContextMenu = (props) => {
     window.addEventListener('click', () => {
       window.onwheel = null;
       if (ctxMenu) {
-        ctxMenu.style.visibility = 'hidden';
+        ctxMenu.style.opacity = 0;
       }
     });
     return () => {
       window.removeEventListener('click', () => {
         if (ctxMenu) {
-          ctxMenu.style.visibility = 'hidden';
+          ctxMenu.style.opacity = 0;
         }
       });
     };
@@ -29,7 +29,7 @@ const ContextMenu = (props) => {
     <div
       id={id}
       className={`context-menu ${className}`}
-      style={{ position: 'fixed', zIndex, top: 0, left: 0, visibility: 'hidden' }}
+      style={{ position: 'fixed', zIndex, top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}
     >
       {children}
     </div>
