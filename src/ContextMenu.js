@@ -5,17 +5,19 @@ const ContextMenu = (props) => {
   const { children, className = '', id, zIndex = 100 } = props;
 
   useEffect(() => {
-    const ctxMenu = document.getElementById(id);
+    const contextMenu = document.getElementById(id);
     window.addEventListener('click', () => {
       window.onwheel = null;
-      if (ctxMenu) {
-        ctxMenu.style.opacity = 0;
+      if (contextMenu) {
+        contextMenu.style.opacity = 0;
+        contextMenu.style.pointerEvents = 'none';
       }
     });
     return () => {
       window.removeEventListener('click', () => {
-        if (ctxMenu) {
-          ctxMenu.style.opacity = 0;
+        if (contextMenu) {
+          contextMenu.style.opacity = 0;
+          contextMenu.style.pointerEvents = 'none';
         }
       });
     };

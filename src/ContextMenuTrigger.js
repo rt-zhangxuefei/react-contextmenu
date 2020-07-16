@@ -16,28 +16,28 @@ const ContextMenuTrigger = (props) => {
   }, []);
   const handleContextMenu = useCallback((ev) => {
     ev.persist();
-    const ctxtMenu = document.getElementById(id);
+    const contextMenu = document.getElementById(id);
     window.onwheel = (ev2) => {
       ev2.preventDefault();
     };
     let top = ev.clientY;
     let left = ev.clientX;
-    let rect = ctxtMenu.getBoundingClientRect();
+    let rect = contextMenu.getBoundingClientRect();
     const winWidth = window.innerWidth;
     const winHeight = window.innerHeight;
     if (!rect.height) {
       timer.current = window.setTimeout(() => {
-        rect = ctxtMenu.getBoundingClientRect();
+        rect = contextMenu.getBoundingClientRect();
         if (winWidth - left < rect.width) {
           left -= rect.width;
         }
         if (winHeight - top < rect.height) {
           top -= rect.height;
         }
-        ctxtMenu.style.top = `${top}px`;
-        ctxtMenu.style.left = `${left}px`;
-        ctxtMenu.style.opacity = 1;
-        ctxtMenu.style.pointerEvents = 'auto';
+        contextMenu.style.top = `${top}px`;
+        contextMenu.style.left = `${left}px`;
+        contextMenu.style.opacity = 1;
+        contextMenu.style.pointerEvents = 'auto';
         clearTimeout(timer.current);
       }, 1000 / 60);
     } else {
@@ -47,10 +47,10 @@ const ContextMenuTrigger = (props) => {
       if (winHeight - top < rect.height) {
         top -= rect.height;
       }
-      ctxtMenu.style.top = `${top}px`;
-      ctxtMenu.style.left = `${left}px`;
-      ctxtMenu.style.opacity = 1;
-      ctxtMenu.style.pointerEvents = 'auto';
+      contextMenu.style.top = `${top}px`;
+      contextMenu.style.left = `${left}px`;
+      contextMenu.style.opacity = 1;
+      contextMenu.style.pointerEvents = 'auto';
     }
   }, []);
 
