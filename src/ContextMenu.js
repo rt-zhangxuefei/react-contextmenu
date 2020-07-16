@@ -4,22 +4,19 @@ import './ContextMenu.less';
 const ContextMenu = (props) => {
   const { children, className = '', id, zIndex = 100 } = props;
 
-  useEffect(() => {
+  const hanleWindowClick = () => {
     const contextMenu = document.getElementById(id);
-    window.addEventListener('click', () => {
-      window.onwheel = null;
-      if (contextMenu) {
-        contextMenu.style.opacity = 0;
-        contextMenu.style.pointerEvents = 'none';
-      }
-    });
+    window.onwheel = null;
+    if (contextMenu) {
+      contextMenu.style.opacity = 0;
+      contextMenu.style.pointerEvents = 'none';
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', hanleWindowClick);
     return () => {
-      window.removeEventListener('click', () => {
-        if (contextMenu) {
-          contextMenu.style.opacity = 0;
-          contextMenu.style.pointerEvents = 'none';
-        }
-      });
+      window.removeEventListener('click', hanleWindowClick);
     };
   }, []);
 
