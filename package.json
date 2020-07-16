@@ -33,16 +33,16 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@babel/cli": "^7.10.3",
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@umijs/fabric": "^2.1.1",
     "babel-loader": "^8.1.0",
-    "browserslist": "^4.12.1",
+    "browserslist": "^4.13.0",
     "css-loader": "^3.6.0",
-    "less": "^3.11.3",
-    "less-loader": "^6.1.2",
+    "less": "^3.12.0",
+    "less-loader": "^6.2.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
     "postcss-normalize": "^9.0.0",
@@ -50,7 +50,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
-    "webpack": "^5.0.0-beta.18",
+    "webpack": "^5.0.0-beta.22",
     "webpack-cli": "^4.0.0-beta.8"
   }
 }
