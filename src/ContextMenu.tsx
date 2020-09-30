@@ -21,7 +21,8 @@ const ContextMenu = (props) => {
   }, []);
 
   if (!id) {
-    return console.error('property:id is required');
+    console.error('property:id is required');
+    return <div>property:id is required</div>;
   }
 
   return (

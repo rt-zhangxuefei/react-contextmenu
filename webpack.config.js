@@ -2,7 +2,7 @@ const path = require('path');
 const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'index.js',
@@ -13,11 +13,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         loader: 'babel-loader',
         include: [path.resolve(__dirname, './src')],
         options: {
-          presets: ['@babel/preset-react', ['@babel/preset-env']],
+          presets: [['@babel/preset-typescript'], ['@babel/preset-env'], ['@babel/preset-react']],
+          plugins: [['@babel/plugin-transform-typescript'], ['@babel/plugin-transform-react-jsx']],
         },
       },
       {
@@ -28,26 +29,25 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-flexbugs-fixes'),
-                require('postcss-preset-env')({
-                  autoprefixer: {
-                    flexbox: 'no-2009',
-                  },
-                  stage: 3,
-                }),
-                // Adds PostCSS Normalize as the reset css with default options,
-                // so that it honors browserslist config in package.json
-                // which in turn let's users customize the target behavior as per their needs.
-                postcssNormalize(),
-              ],
+              postcssOptions: {
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'),
+                  require('postcss-preset-env'),
+                  // Adds PostCSS Normalize as the reset css with default options,
+                  // so that it honors browserslist config in package.json
+                  // which in turn let's users customize the target behavior as per their needs.
+                  postcssNormalize(),
+                ],
+              },
             },
           },
           { loader: 'less-loader' },
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.ts', '.tsx'],
   },
   externals: {
     react: {
