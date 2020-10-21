@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 const ContextMenuTrigger = (props) => {
   const { children, id, className = '' } = props;
@@ -36,7 +36,7 @@ const ContextMenuTrigger = (props) => {
         }
         contextMenu.style.top = `${top}px`;
         contextMenu.style.left = `${left}px`;
-        contextMenu.style.opacity = 1;
+        contextMenu.style.opacity = '1';
         contextMenu.style.pointerEvents = 'auto';
         clearTimeout(timer.current);
       }, 1000 / 60);
@@ -49,7 +49,7 @@ const ContextMenuTrigger = (props) => {
       }
       contextMenu.style.top = `${top}px`;
       contextMenu.style.left = `${left}px`;
-      contextMenu.style.opacity = 1;
+      contextMenu.style.opacity = '1';
       contextMenu.style.pointerEvents = 'auto';
     }
   }, []);
@@ -63,4 +63,4 @@ const ContextMenuTrigger = (props) => {
     </div>
   );
 };
-export default memo(ContextMenuTrigger);
+export default ContextMenuTrigger;

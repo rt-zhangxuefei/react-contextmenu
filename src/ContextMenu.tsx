@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './ContextMenu.less';
 
 const ContextMenu = (props) => {
@@ -8,7 +8,7 @@ const ContextMenu = (props) => {
     const contextMenu = document.getElementById(id);
     window.onwheel = null;
     if (contextMenu) {
-      contextMenu.style.opacity = 0;
+      contextMenu.style.opacity = '0';
       contextMenu.style.pointerEvents = 'none';
     }
   };
@@ -36,4 +36,4 @@ const ContextMenu = (props) => {
   );
 };
 
-export default memo(ContextMenu);
+export default ContextMenu;
