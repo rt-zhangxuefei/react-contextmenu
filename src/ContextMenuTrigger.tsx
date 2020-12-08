@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
 const ContextMenuTrigger = (props) => {
-  const { children, id, className = '' } = props;
+  const { children, id, className = '', ...rest } = props;
   const timer = useRef(null);
 
   useEffect(() => {
@@ -58,7 +58,11 @@ const ContextMenuTrigger = (props) => {
     return console.error('property id is required');
   }
   return (
-    <div className={`context-menu-trigger ${className}`} onContextMenu={handleContextMenu}>
+    <div
+      className={`context-menu-trigger ${className}`}
+      onContextMenu={handleContextMenu}
+      {...rest}
+    >
       {children}
     </div>
   );

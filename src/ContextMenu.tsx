@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './ContextMenu.less';
 
 const ContextMenu = (props) => {
-  const { children, className = '', id, zIndex = 100 } = props;
+  const { children, className = '', id, zIndex = 100, ...rest } = props;
 
   const hanleWindowClick = () => {
     const contextMenu = document.getElementById(id);
@@ -28,6 +28,7 @@ const ContextMenu = (props) => {
   return (
     <div
       id={id}
+      {...rest}
       className={`context-menu ${className}`}
       style={{ position: 'fixed', zIndex, top: 0, left: 0, opacity: 0, pointerEvents: 'none' }}
     >
