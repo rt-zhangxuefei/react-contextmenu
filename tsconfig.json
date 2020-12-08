@@ -19,7 +19,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noEmit": true
   },
   "include": ["src"]
