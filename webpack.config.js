@@ -1,5 +1,6 @@
 const path = require('path');
 const postcssNormalize = require('postcss-normalize');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -46,8 +47,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new ESLintPlugin({
+      extensions: ['react-app', 'prettier'],
+      exclude: ['.*.js'],
+    }),
+  ],
   resolve: {
-    extensions: ['.wasm', '.mjs', '.js', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.less', '.css'],
   },
   externals: {
     react: {

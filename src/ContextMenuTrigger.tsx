@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const ContextMenuTrigger = (props) => {
   const { children, id, className = '', ...rest } = props;
