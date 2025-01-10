@@ -1,35 +1,6 @@
-[![NPM](https://nodei.co/npm/react-contextmenu-lite.png)](https://www.npmjs.com/package/react-contextmenu-lite)
-
-# react-contextmenu-lite
-
-基于 React 实现的右键菜单，仅提供基本功能，样式由你自己定义
-
-## Introduction
-
-- 包含 2 个高阶组件( ContextMenu, ContextMenuTrigger )
-- 两个组件必须包含相同的 id 属性 ( className 参数可选 )
-
-## Installation
-
-Using npm
-
-```
-npm install --save react-contextmenu-lite
-```
-
-Using yarn
-
-```
-yarn add react-contextmenu-lite
-```
-
-## Example
-
-```javascript
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ContextMenuTrigger, ContextMenu } from 'react-contextmenu-lite';
+import { ContextMenu, ContextMenuTrigger } from './ContextMenu/index';
 
 function App() {
   return (
@@ -79,8 +50,3 @@ function App() {
 }
 
 export default App;
-```
-
-## Licence
-
-MIT

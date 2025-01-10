@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const ContextMenuTrigger = (props) => {
-  const { children, id, className = '', ...rest } = props;
+  const { children, id, className = '', onContextMenu = () => {}, ...rest } = props;
   const timer = useRef(null);
 
   useEffect(() => {
+    attachEventListeners();
     window.addEventListener('contextmenu', (ev) => {
       ev.preventDefault();
     });
@@ -12,14 +13,40 @@ const ContextMenuTrigger = (props) => {
       window.removeEventListener('contextmenu', (ev) => {
         ev.preventDefault();
       });
+      removeEventListeners();
     };
   }, []);
-  const handleContextMenu = useCallback((ev) => {
+
+  const hideContextMenu = () => {
+    const contextMenu = document.getElementById(id);
+    if (contextMenu) {
+      contextMenu.style.opacity = '0';
+      contextMenu.style.pointerEvents = 'none';
+      removeEventListeners();
+    }
+  };
+
+  const setPostionShow = (contextMenu, top, left) => {
+    contextMenu.style.top = `${top}px`;
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.opacity = '1';
+    contextMenu.style.pointerEvents = 'auto';
+    attachEventListeners();
+  };
+
+  const attachEventListeners = () => {
+    window.addEventListener('click', hideContextMenu);
+    window.addEventListener('scroll', hideContextMenu, true);
+  };
+
+  const removeEventListeners = () => {
+    window.removeEventListener('click', hideContextMenu);
+    window.removeEventListener('scroll', hideContextMenu, true);
+  };
+
+  const handleContextMenu = (ev) => {
     ev.persist();
     const contextMenu = document.getElementById(id);
-    window.onwheel = (ev2) => {
-      ev2.preventDefault();
-    };
     let top = ev.clientY;
     let left = ev.clientX;
     let rect = contextMenu.getBoundingClientRect();
@@ -34,10 +61,7 @@ const ContextMenuTrigger = (props) => {
         if (winHeight - top < rect.height) {
           top -= rect.height;
         }
-        contextMenu.style.top = `${top}px`;
-        contextMenu.style.left = `${left}px`;
-        contextMenu.style.opacity = '1';
-        contextMenu.style.pointerEvents = 'auto';
+        setPostionShow(contextMenu, top, left);
         clearTimeout(timer.current);
       }, 1000 / 60);
     } else {
@@ -47,12 +71,10 @@ const ContextMenuTrigger = (props) => {
       if (winHeight - top < rect.height) {
         top -= rect.height;
       }
-      contextMenu.style.top = `${top}px`;
-      contextMenu.style.left = `${left}px`;
-      contextMenu.style.opacity = '1';
-      contextMenu.style.pointerEvents = 'auto';
+      setPostionShow(contextMenu, top, left);
     }
-  }, []);
+    onContextMenu(ev);
+  };
 
   if (!id) {
     return console.error('property id is required');
