@@ -1,3 +1,4 @@
+import React from 'react';
 import './ContextMenu.css';
 
 const ContextMenu = (props) => {

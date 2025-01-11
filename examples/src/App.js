@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import { ContextMenu, ContextMenuTrigger } from './ContextMenu/index';
+// import { ContextMenu, ContextMenuTrigger } from './ContextMenu/index';
+import { ContextMenu, ContextMenuTrigger } from './Lib';
 
 function App() {
   return (

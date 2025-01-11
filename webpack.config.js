@@ -7,17 +7,20 @@ module.exports = {
     filename: 'index.js',
     library: 'ReactContextMenu',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   mode: 'production',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        include: [path.resolve(__dirname, './src')],
-        options: {
-          presets: [['@babel/preset-env'], ['@babel/preset-react']],
-          plugins: [['@babel/plugin-transform-react-jsx']],
+        include: [path.resolve(__dirname, 'src')],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-env'], ['@babel/preset-react']],
+            plugins: [['@babel/plugin-transform-react-jsx']],
+          },
         },
       },
       {
